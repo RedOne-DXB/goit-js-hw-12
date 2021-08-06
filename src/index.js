@@ -3,16 +3,12 @@ import API from './js/fetchCountries';
 import countryCardTemplate from './templates/countryCard.hbs';
 import countryListCardTemplate from './templates/countryListCard';
 import Notiflix from "notiflix";
+import { getRefs } from './js/refs';
 
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 
-const refs = {
-    countryList: document.querySelector('.country-list'),
-    countryInfo: document.querySelector('.country-info'),
-    searchBox: document.querySelector('#search-box'),
-}
-
+const refs = getRefs();
 refs.searchBox.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(evt) {
