@@ -2,6 +2,7 @@ import './css/styles.css';
 import API from './js/fetchCountries';
 import countryCardTemplate from './templates/countryCard.hbs';
 import countryListCardTemplate from './templates/countryListCard';
+import Notiflix from "notiflix";
 
 const debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
@@ -37,9 +38,8 @@ function renderCountryCard(country) {
         const listMarkup = countryListCardTemplate(country)
         refs.countryList.innerHTML = listMarkup;
     } else if (country.status === 404) {
-        console.log('Such a country NOT FOUND');
+        Notiflix.Notify.failure('Oops, there is no country with that name');
     } else if (country.length > 10) {
-        console.log('Too many countries')
+        Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
     }
-   
 }
