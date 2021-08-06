@@ -1,5 +1,5 @@
 import './css/styles.css';
-import './js/fetchCountries';
+import API from './js/fetchCountries';
 import countriesTemplate from './templates/countries.hbs';
 
 const DEBOUNCE_DELAY = 300;
@@ -9,16 +9,10 @@ const refs = {
     countryInfo: document.querySelector('.country-info'),
 }
 
-fetchDamnCountry()
+
+API.fetchCountries('suriname')
     .then(renderCountryCard)
     .catch(error => console.log(error));
-
-function fetchDamnCountry(countryName) {
-    return fetch('https://restcountries.eu/rest/v2/name/ukraine')
-    .then(response => {
-        return response.json();
-    });
-}
 
 function renderCountryCard(country) {
     const markup = countriesTemplate(country[0]);
