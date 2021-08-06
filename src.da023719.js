@@ -3,6 +3,6 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{}],"irxn":[function(require,module,exports) {
 "use strict";function e(){console.log("То ли еще будет")}Object.defineProperty(exports,"__esModule",{value:!0}),exports.fetchCountries=e;
 },{}],"Focm":[function(require,module,exports) {
-"use strict";require("./css/styles.css"),require("./js/fetchCountries");const s=300;
+"use strict";require("./css/styles.css"),require("./js/fetchCountries");const e=300;fetch("https://restcountries.eu/rest/v2/name/united").then(e=>e.json()).then(e=>{console.log(e)}).catch(e=>{console.log(e)});
 },{"./css/styles.css":"krre","./js/fetchCountries":"irxn"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-12/src.5309149b.js.map
+//# sourceMappingURL=/goit-js-hw-12/src.da023719.js.map
