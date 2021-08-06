@@ -1,4 +1,3 @@
-import { mark } from 'regenerator-runtime';
 import './css/styles.css';
 import './js/fetchCountries';
 import countriesTemplate from './templates/countries.hbs';
@@ -10,14 +9,16 @@ const refs = {
     countryInfo: document.querySelector('.country-info'),
 }
 
-fetch('https://restcountries.eu/rest/v2/name/switzerland')
+fetchDamnCountry()
+    .then(renderCountryCard)
+    .catch(error => console.log(error));
+
+function fetchDamnCountry(countryName) {
+    return fetch('https://restcountries.eu/rest/v2/name/ukraine')
     .then(response => {
         return response.json();
-    })
-    .then(renderCountryCard)
-    .catch(error => {
-    console.log(error);
-});
+    });
+}
 
 function renderCountryCard(country) {
     const markup = countriesTemplate(country[0]);
